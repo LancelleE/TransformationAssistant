@@ -1,8 +1,6 @@
 from dotenv import dotenv_values
-from backend.LLM import LLM_Mistral
-from backend.streamlit_app import app
+import backend.streamlit_app as streamlit_app
 CONFIG = dotenv_values(".env")
 
 if __name__ == '__main__':
-    model = LLM_Mistral(CONFIG['MISTRAL_API_KEY'])
-    app()
+    streamlit_app.app(openai_key=CONFIG['OPENAI_API_KEY'])
